@@ -20,7 +20,7 @@ public class Shirts : MonoBehaviour
     // public GameObject muzzleFlash;
     // public TextMeshProUGUI ammunitionDisplay;
 
-    private void ShootShirt() 
+    /*public void ShootShirt() 
     {
         //Find the exact hit position using a raycast
         Ray ray = muzzle.position(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
@@ -53,5 +53,5 @@ public class Shirts : MonoBehaviour
         // currentBullet.GetComponent<Rigidbody>().AddForce(muzzle.position.transform.up * upwardForce, ForceMode.Impulse);
 
 
-    }
+    }*/
 }

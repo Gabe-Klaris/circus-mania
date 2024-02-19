@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
             //if (CanShoot()) {
                 if (Physics.Raycast(muzzle.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
-                    Shirts.ShootShirt();
+                    // Shirts.ShootShirt();
                     Debug.Log("hit?");
                     Debug.Log(hitInfo.transform.name);
 
