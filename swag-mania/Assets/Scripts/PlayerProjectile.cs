@@ -6,7 +6,7 @@ public class PlayerProjectile : MonoBehaviour{
 
       public int damage = 1;
       public GameObject hitEffectAnim;
-      public float SelfDestructTime = 2.0f;
+      public float SelfDestructTime = 1.0f;
       public float SelfDestructVFX = 0.5f; 
       // public SpriteRenderer projectileArt;
 
