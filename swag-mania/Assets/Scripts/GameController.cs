@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour {
             theTimer -= Time.deltaTime;
             timerText.text = "Time: " + Mathf.Floor(theTimer);
             if ((theTimer <= 0) && (isEnd == false)){
-                  SceneManager.LoadScene("EndLose");
+                  SceneManager.LoadScene("EndScene");
                   isEnd = true;
             }
       }
