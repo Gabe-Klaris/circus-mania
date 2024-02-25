@@ -6,14 +6,15 @@ public class Tshirt_bullet : MonoBehaviour{
 
       // public int damage = 1;
       // public GameObject hitEffectAnim;
-      public float SelfDestructTime = 2.0f;
-      public float SelfDestructVFX = 0.5f; 
+      public float SelfDestructTime = 4.0f;
+      public float SelfDestructVFX = 0.2f; 
       // public SpriteRenderer projectileArt;
 
       void Start(){
            // projectileArt = GetComponentInChildren<SpriteRenderer>();
-           selfDestruct();
+           StartCoroutine(selfDestruct());
       }
+
 
       //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
       void OnTriggerEnter(Collider other){
@@ -23,7 +24,7 @@ public class Tshirt_bullet : MonoBehaviour{
                   // projectileArt.enabled = false;
                   // Destroy (animEffect, 0.5);
                   StartCoroutine(selfDestructHit());
-            }
+            } 
       }
 
       IEnumerator selfDestructHit(){
