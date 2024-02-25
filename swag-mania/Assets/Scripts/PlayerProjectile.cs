@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour{ 
+public class Tshirt_bullet : MonoBehaviour{ 
 
-      public int damage = 1;
-      public GameObject hitEffectAnim;
-      public float SelfDestructTime = 1.0f;
+      // public int damage = 1;
+      // public GameObject hitEffectAnim;
+      public float SelfDestructTime = 2.0f;
       public float SelfDestructVFX = 0.5f; 
       // public SpriteRenderer projectileArt;
 
@@ -16,22 +16,19 @@ public class PlayerProjectile : MonoBehaviour{
       }
 
       //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
-      void OnTriggerEnter2D(Collider2D other){
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
-                  //gameHandlerObj.playerGetHit(damage);
-                  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
-            }
+      void OnTriggerEnter(Collider other){
+            
            if (other.gameObject.tag != "Player") {
-                  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
+                  // GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
                   // projectileArt.enabled = false;
-                  //Destroy (animEffect, 0.5);
-                  StartCoroutine(selfDestructHit(animEffect));
+                  // Destroy (animEffect, 0.5);
+                  StartCoroutine(selfDestructHit());
             }
       }
 
-      IEnumerator selfDestructHit(GameObject VFX){
+      IEnumerator selfDestructHit(){
             yield return new WaitForSeconds(SelfDestructVFX);
-            Destroy (VFX);
+            //Destroy (VFX);
             Destroy (gameObject);
       }
 

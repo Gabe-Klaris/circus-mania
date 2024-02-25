@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c79931721f9c24555b3368696c3260b5, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c79931721f9c24555b3368696c3260b5, type: 3}
       propertyPath: m_LocalScale.x
@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c79931721f9c24555b3368696c3260b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7054326271647503052}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c79931721f9c24555b3368696c3260b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4307668633002759836}
   m_SourcePrefab: {fileID: 100100000, guid: c79931721f9c24555b3368696c3260b5, type: 3}
 --- !u!1 &4807840849132020172 stripped
 GameObject:
@@ -136,3 +139,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4307668633002759836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807840849132020172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69eb63bc2fb943d4b24736d899bf459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  hitEffectAnim: {fileID: 0}
+  SelfDestructTime: 3
+  SelfDestructVFX: 0.5

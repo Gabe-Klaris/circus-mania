@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shirt
+  - Enemies
   layers:
   - Default
   - TransparentFX
