@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: person_sitting
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
+      propertyPath: m_TagString
+      value: sitting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -263,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: person_sitting (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
+      propertyPath: m_TagString
+      value: sitting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -293,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387c8646456d0641a0dcf5ca273f918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingPerson: {fileID: 809246233}
 --- !u!4 &159779005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436653556537228, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
@@ -484,6 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3615072700354665344, guid: 7ef48350e521e15458d36b07b02cadef, type: 3}
+    - {fileID: 6012817889572253318, guid: 7ef48350e521e15458d36b07b02cadef, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -513,6 +523,10 @@ MonoBehaviour:
   theTimer: 0
   timerText: {fileID: 1584820057}
   startTime: 45
+  numPeople: 0
+  personsArr: []
+  persons: []
+  spawnRate: 5
   isEnd: 1
 --- !u!1001 &809246231
 PrefabInstance:
@@ -750,6 +764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: person_sitting (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
+      propertyPath: m_TagString
+      value: sitting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -780,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387c8646456d0641a0dcf5ca273f918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingPerson: {fileID: 1263616307}
 --- !u!1 &1003732258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: person_sitting (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
+      propertyPath: m_TagString
+      value: sitting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1162,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387c8646456d0641a0dcf5ca273f918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingPerson: {fileID: 230885522}
 --- !u!4 &1180553875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
@@ -1718,6 +1742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: person_sitting (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
+      propertyPath: m_TagString
+      value: sitting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1743,6 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387c8646456d0641a0dcf5ca273f918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingPerson: {fileID: 1882013283}
 --- !u!4 &1628536691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}
@@ -1831,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459910588280752, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.84
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 4459910588280752, guid: 93e39505c6f8cf0459bb096efac0ff1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1893,6 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387c8646456d0641a0dcf5ca273f918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingPerson: {fileID: 1390359972}
 --- !u!4 &1737095514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3d5cc61026606487ea9ff7df727ce833, type: 3}

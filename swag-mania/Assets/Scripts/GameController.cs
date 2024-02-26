@@ -11,6 +11,16 @@ public class GameController : MonoBehaviour {
       public float theTimer;
       public Text timerText;
       public float startTime = 20;
+
+      public int numPeople;
+
+      public GameObject[] personsArr;
+
+      public List<GameObject> persons;
+
+      public int spawnRate = 5;
+
+      
       public bool isEnd = true;
       void Start () {
             score = 0;
@@ -21,6 +31,9 @@ public class GameController : MonoBehaviour {
                   Cursor.lockState = CursorLockMode.None;
                   Cursor.visible = true;
             }
+            personsArr = GameObject.FindGameObjectsWithTag("sitting");
+            persons = new List<GameObject>(personsArr);
+            StartCoroutine(peopleSpawn(persons.Count));
       }
 
       void Update () {
@@ -33,7 +46,7 @@ public class GameController : MonoBehaviour {
             theTimer -= Time.deltaTime;
             timerText.text = "Time: " + Mathf.Floor(theTimer);
             if ((theTimer <= 0) && (isEnd == false)){
-                  SceneManager.LoadScene("EndScene");
+                  SceneManager.LoadScene("EndLose");
                   isEnd = true;
             }
       }
@@ -53,9 +66,13 @@ public class GameController : MonoBehaviour {
       }
 
       public void PlayAgain() {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("ThomasScene");
             theTimer = startTime;
             score = 0;
+      }
+
+      public void CreditsScene() {
+            Debug.Log("not done yet");
       }
 
       public void QuitGame() {
@@ -68,5 +85,17 @@ public class GameController : MonoBehaviour {
 
       public int GetScore () {
             return score;
+      }
+
+      IEnumerator peopleSpawn(int numPeople) {
+            for (int i = 0; i < numPeople; i++) {
+                  yield return new WaitForSeconds(5);
+                  int pos = Random.Range(0, persons.Count);
+                  GameObject person = persons[pos];
+                  PersonSit sitPerson = person.GetComponent<PersonSit>();
+                  sitPerson.StandUp();
+                  Debug.Log(person);
+                  persons.RemoveAt(pos);
+            }
       }
 }
