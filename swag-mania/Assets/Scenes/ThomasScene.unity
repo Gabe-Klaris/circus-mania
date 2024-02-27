@@ -1830,6 +1830,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1490768242711307649, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3046633338248471540, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
       propertyPath: m_Name
       value: Canvas_score
@@ -1919,8 +1923,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6612760503341210505, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612760503341210505, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612760503341210505, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 508
+      value: 406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612760503341210505, guid: 0e0ac2c950c2f9e4da0e6814c501440d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 288
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
