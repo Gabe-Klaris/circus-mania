@@ -12,8 +12,6 @@ public class GameController : MonoBehaviour {
       public Text timerText;
       public float startTime = 20;
 
-      public int numPeople;
-
       public GameObject[] personsArr;
 
       public List<GameObject> persons;
