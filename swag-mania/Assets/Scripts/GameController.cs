@@ -7,22 +7,22 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
       public GameObject textGameObject;
       private int score;
-      public int scoreWin = 3;
       public float theTimer;
       public Text timerText;
       public float startTime = 20;
 
-      public GameObject[] personsArr;
+      public int spawnRate = 3;
 
-      public List<GameObject> persons;
+      private GameObject[] personsArr;
 
-      public int spawnRate = 5;
+      private List<GameObject> persons;
+
+      private int numPeople;
 
       
       public bool isEnd = true;
       void Start () {
             score = 0;
-            UpdateScore();
             theTimer = startTime;
             isEnd = false;
             if (isEnd) {
@@ -31,13 +31,12 @@ public class GameController : MonoBehaviour {
             }
             personsArr = GameObject.FindGameObjectsWithTag("sitting");
             persons = new List<GameObject>(personsArr);
-            StartCoroutine(peopleSpawn(persons.Count));
+            numPeople = persons.Count;
+            UpdateScore();
+            StartCoroutine(peopleSpawn());
       }
 
       void Update () {
-            if (Input.GetKey("escape")) {
-                  QuitGame();
-            }
       }
 
       void FixedUpdate () {
@@ -52,25 +51,30 @@ public class GameController : MonoBehaviour {
       public void AddScore (int newScoreValue) {
             score += newScoreValue;
             UpdateScore ();
-            if (score >= scoreWin) {
-                  SceneManager.LoadScene("EndWin");
+            if (score >= numPeople) {
+                  // Line should vary depending on the level
+                  SceneManager.LoadScene("Level2");
                   isEnd = true;
             }
       }
 
       void UpdateScore () {
             Text scoreTextB = textGameObject.GetComponent<Text>();
-            scoreTextB.text = "Score: " + score;
+            scoreTextB.text = "Score: " + score + "/" + numPeople;
       }
 
       public void PlayAgain() {
-            SceneManager.LoadScene("ThomasScene");
+            SceneManager.LoadScene("Level1");
             theTimer = startTime;
             score = 0;
       }
 
       public void CreditsScene() {
-            Debug.Log("not done yet");
+            SceneManager.LoadScene("CreditsScene");
+      }
+
+      public void Return() {
+            SceneManager.LoadScene("StartMenu");
       }
 
       public void QuitGame() {
@@ -85,9 +89,9 @@ public class GameController : MonoBehaviour {
             return score;
       }
 
-      IEnumerator peopleSpawn(int numPeople) {
+      IEnumerator peopleSpawn() {
             for (int i = 0; i < numPeople; i++) {
-                  yield return new WaitForSeconds(5);
+                  yield return new WaitForSeconds(spawnRate);
                   int pos = Random.Range(0, persons.Count);
                   GameObject person = persons[pos];
                   PersonSit sitPerson = person.GetComponent<PersonSit>();
