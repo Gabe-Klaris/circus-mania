@@ -20,8 +20,8 @@ public class PersonSit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
+    
 
     public void StandUp() {
         standingPerson.SetActive(true);

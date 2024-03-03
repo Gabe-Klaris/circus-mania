@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
       public GameObject textGameObject;
+      public GameObject scoreText;
       private int score;
       public float theTimer;
       public Text timerText;
+      public Text happyText;
       public float startTime = 20;
 
       public int spawnRate = 3;
+      public float happyScore = 100;
 
       private GameObject[] personsArr;
 
@@ -33,6 +36,7 @@ public class GameController : MonoBehaviour {
             persons = new List<GameObject>(personsArr);
             numPeople = persons.Count;
             UpdateScore();
+            UpdateHappy();
             StartCoroutine(peopleSpawn());
       }
 
@@ -40,12 +44,31 @@ public class GameController : MonoBehaviour {
       }
 
       void FixedUpdate () {
+            // Timer Mechanic for Counting Down
             theTimer -= Time.deltaTime;
             timerText.text = "Time: " + Mathf.Floor(theTimer);
             if ((theTimer <= 0) && (isEnd == false)){
                   SceneManager.LoadScene("EndLose");
                   isEnd = true;
             }
+
+            //Happiness mechanic for counting down based on time 
+      
+            // Text Box
+            happyScore = happyScore - 2*Time.deltaTime;
+            UpdateHappy();
+            if ((happyScore <= 0) && (isEnd == false)){
+                  SceneManager.LoadScene("EndLose");
+                  isEnd = true;
+            }
+
+            // Progress Bar
+            float toChange = (-2*Time.deltaTime)/100;
+            happySlider mySlider = FindObjectOfType<happySlider>();
+                    if (mySlider != null) {
+                    mySlider.IncrementProgress(toChange); // Adjust the argument as needed
+                }
+      
       }
 
       public void AddScore (int newScoreValue) {
@@ -58,9 +81,20 @@ public class GameController : MonoBehaviour {
             }
       }
 
+      public void AdjustHappy (int happyChange) {
+            happyScore = happyScore - happyChange;
+            UpdateHappy();
+      }
+
       void UpdateScore () {
             Text scoreTextB = textGameObject.GetComponent<Text>();
             scoreTextB.text = "Score: " + score + "/" + numPeople;
+      }
+
+      public void UpdateHappy(){
+            Text happyTextB = happyText.GetComponent<Text>();
+            happyTextB.text = "Happiness: " + Mathf.RoundToInt(happyScore);
+
       }
 
       public void PlayAgain() {
@@ -100,4 +134,6 @@ public class GameController : MonoBehaviour {
                   persons.RemoveAt(pos);
             }
       }
+
+
 }
