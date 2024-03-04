@@ -79,9 +79,13 @@ public class GameController : MonoBehaviour {
             score += newScoreValue;
             UpdateScore ();
             if (score >= numPeople) {
-                  // Line should vary depending on the level
-                  SceneManager.LoadScene("Level2");
-                  isEnd = true;
+                  if (!happiness) {
+                        SceneManager.LoadScene("Level2");
+                  }
+                  else {
+                        SceneManager.LoadScene("EndWin");
+                        isEnd = true;
+                  }
             }
       }
 
