@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
 
       public int spawnRate = 3;
       public float happyScore = 100;
+      public bool happiness = true;
 
       private GameObject[] personsArr;
 
@@ -36,7 +37,7 @@ public class GameController : MonoBehaviour {
             persons = new List<GameObject>(personsArr);
             numPeople = persons.Count;
             UpdateScore();
-            UpdateHappy();
+            if (happiness) {UpdateHappy(); }
             StartCoroutine(peopleSpawn());
       }
 
@@ -47,15 +48,17 @@ public class GameController : MonoBehaviour {
             // Timer Mechanic for Counting Down
             theTimer -= Time.deltaTime;
             timerText.text = "Time: " + Mathf.Floor(theTimer);
-            if ((theTimer <= 0) && (isEnd == false)){
+            if ((theTimer <= 0) && (isEnd == false) && (happiness == false)){
                   SceneManager.LoadScene("EndLose");
                   isEnd = true;
             }
+            
 
             //Happiness mechanic for counting down based on time 
       
             // Text Box
             happyScore = happyScore - 2*Time.deltaTime;
+            if (happiness == true) { 
             UpdateHappy();
             if ((happyScore <= 0) && (isEnd == false)){
                   SceneManager.LoadScene("EndLose");
@@ -68,6 +71,7 @@ public class GameController : MonoBehaviour {
                     if (mySlider != null) {
                     mySlider.IncrementProgress(toChange); // Adjust the argument as needed
                 }
+            }
       
       }
 
