@@ -29,11 +29,12 @@ public class PersonStand : MonoBehaviour
             GetComponent<Collider> ().enabled = false;
             //GetComponent<AudioSource>().Play();
             gameController.AddScore(1);
-            gameController.AdjustHappy(-5);
+            if (gameController.happiness) {gameController.AdjustHappy(-5);
                 happySlider mySlider = FindObjectOfType<happySlider>();
                     if (mySlider != null) {
                     mySlider.IncrementProgress(0.05f); // Adjust the argument as needed
                 }
+            }
             StartCoroutine(DestroyThis());
         }
         Debug.Log("impact: " + gameController.GetScore());
