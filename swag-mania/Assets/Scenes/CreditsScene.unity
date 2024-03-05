@@ -1050,7 +1050,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6012817889572253318, guid: 7ef48350e521e15458d36b07b02cadef, type: 3}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: Return
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PersonStand : MonoBehaviour
+public class AngryPerson : MonoBehaviour
 {
     private GameController gameController;
 
     public GameObject sittingPerson;
 
-    public GameObject angryPerson;
 
     private int nextUpdate = 2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +31,10 @@ public class PersonStand : MonoBehaviour
     }
 
     void UpdateEverySecond() {
-        gameController.AdjustHappy(1);
+        gameController.AdjustHappy(2);
         happySlider mySlider = FindObjectOfType<happySlider>();
         if (mySlider != null) {
-            mySlider.IncrementProgress(-0.01f); // Adjust the argument as needed
+            mySlider.IncrementProgress(-0.02f); // Adjust the argument as needed
         }
     }
 
@@ -62,19 +62,5 @@ public class PersonStand : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
 
-
-    void OnEnable() {
-        StartCoroutine(BecomeAngry());
-    }
-
-    IEnumerator BecomeAngry() {
-        Debug.Log("Waiting");
-        yield return new WaitForSeconds(5);
-        Debug.Log("Done waiting");
-        if (gameController.happiness) {
-            angryPerson.SetActive(true);
-            gameObject.SetActive(false);
-        }
-    }
     
 }

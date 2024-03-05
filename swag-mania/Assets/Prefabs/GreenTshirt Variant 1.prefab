@@ -140,5 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69eb63bc2fb943d4b24736d899bf459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelfDestructTime: 3
+  SelfDestructTime: 4
   SelfDestructVFX: 0.5

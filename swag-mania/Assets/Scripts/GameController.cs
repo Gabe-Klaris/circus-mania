@@ -54,23 +54,11 @@ public class GameController : MonoBehaviour {
             }
             
 
-            //Happiness mechanic for counting down based on time 
-      
-            // Text Box
-            happyScore = happyScore - 2*Time.deltaTime;
             if (happiness == true) { 
-            UpdateHappy();
-            if ((happyScore <= 0) && (isEnd == false)){
-                  SceneManager.LoadScene("EndLose");
-                  isEnd = true;
-            }
-
-            // Progress Bar
-            float toChange = (-2*Time.deltaTime)/100;
-            happySlider mySlider = FindObjectOfType<happySlider>();
-                    if (mySlider != null) {
-                    mySlider.IncrementProgress(toChange); // Adjust the argument as needed
-                }
+                  if ((happyScore <= 0) && (isEnd == false)){
+                        SceneManager.LoadScene("EndLose");
+                        isEnd = true;
+                  }
             }
       
       }
@@ -80,7 +68,7 @@ public class GameController : MonoBehaviour {
             UpdateScore ();
             if (score >= numPeople) {
                   if (!happiness) {
-                        SceneManager.LoadScene("Level2");
+                        SceneManager.LoadScene("Level2(happy)");
                   }
                   else {
                         SceneManager.LoadScene("EndWin");
