@@ -45,10 +45,10 @@ public class PersonStand : MonoBehaviour
             GetComponent<Collider> ().enabled = false;
             //GetComponent<AudioSource>().Play();
             gameController.AddScore(1);
-            if (gameController.happiness) {gameController.AdjustHappy(-10);
+            if (gameController.happiness) {gameController.AdjustHappy(-8);
                 happySlider mySlider = FindObjectOfType<happySlider>();
                     if (mySlider != null) {
-                    mySlider.IncrementProgress(0.1f); // Adjust the argument as needed
+                    mySlider.IncrementProgress(0.08f); // Adjust the argument as needed
                 }
             }
             StartCoroutine(DestroyThis());
