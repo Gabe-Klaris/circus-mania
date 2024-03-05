@@ -33,6 +33,6 @@ public class Shooting : MonoBehaviour{
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity); 
             projectile.GetComponent<Rigidbody>().AddForce(fwd * projectileSpeed, ForceMode.Impulse); 
             Debug.Log("Sound?");
-           gameObject.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<AudioSource>().Play();
       } 
 }
