@@ -34,7 +34,7 @@ public class AngryPerson : MonoBehaviour
         gameController.AdjustHappy(2);
         happySlider mySlider = FindObjectOfType<happySlider>();
         if (mySlider != null) {
-            mySlider.IncrementProgress(-0.02f); // Adjust the argument as needed
+            mySlider.IncrementProgress(-0.01f); // Adjust the argument as needed
         }
     }
 

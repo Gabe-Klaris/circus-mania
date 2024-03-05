@@ -2579,7 +2579,7 @@ MonoBehaviour:
   happyText: {fileID: 2132843782}
   startTime: 45
   spawnRate: 3
-  happyScore: 60
+  happyScore: 80
   happiness: 1
   isEnd: 0
 --- !u!1001 &388424642
