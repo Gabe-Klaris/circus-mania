@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
       public Text happyText;
       public float startTime = 20;
 
-      public int spawnRate = 3;
+      public int spawnRate = 5;
       public float happyScore = 100;
       public bool happiness = true;
 
