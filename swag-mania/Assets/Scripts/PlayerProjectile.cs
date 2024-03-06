@@ -7,7 +7,7 @@ public class Tshirt_bullet : MonoBehaviour{
       // public int damage = 1;
       // public GameObject hitEffectAnim;
       public float SelfDestructTime = 4.0f;
-      public float SelfDestructVFX = 0.1f; 
+      public float SelfDestructVFX = 0.01f; 
       // public SpriteRenderer projectileArt;
 
       void Start(){

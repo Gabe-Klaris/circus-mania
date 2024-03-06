@@ -11,6 +11,10 @@ public class Shooting : MonoBehaviour{
       public float attackRate = 2f;
       private float nextAttackTime = 0f; 
 
+      public AudioClip fireSound; 
+
+      private AudioSource m_audiosource;
+
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
@@ -28,11 +32,13 @@ public class Shooting : MonoBehaviour{
       }
 
       void playerFire(){
+            m_audiosource = GetComponent<AudioSource>();
+            m_audiosource.clip = fireSound;
+            m_audiosource.Play();
             //animator.SetTrigger ("Fire"); 
             Vector3 fwd = (firePoint.position - this.transform.position).normalized; 
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity); 
             projectile.GetComponent<Rigidbody>().AddForce(fwd * projectileSpeed, ForceMode.Impulse); 
             Debug.Log("Sound?");
-            gameObject.GetComponent<AudioSource>().Play();
       } 
 }
